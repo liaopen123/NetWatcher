@@ -1,0 +1,67 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            debuggable false
+            buildConfigField "boolean", "PRINT_LOG", "false"
+            buildConfigField "String", "URL_MAIN", "\"https://api.haohaozhu.cn/index.php/Home/\""
+            buildConfigField "String", "STATISTICAL_RES", "\"http://uni.hzstat.cn\""
+
+
+        }
+        gray {
+            debuggable true
+            buildConfigField "boolean", "PRINT_LOG", "true"
+            buildConfigField "String", "URL_MAIN", "\"https://api-gray.haohaozhu.cn/index.php/Home/\""
+            buildConfigField "String", "STATISTICAL_RES", "\"http://uni.gray1.hzstat.cn\""
+
+        }
+        beta {
+            debuggable true
+            buildConfigField "boolean", "PRINT_LOG", "true"
+            buildConfigField "String", "URL_MAIN", "\"http://api4.haohaoce.com/index.php/Home/\""
+            buildConfigField "String", "STATISTICAL_RES", "\"http://uni.gray1.hzstat.cn\""
+
+        }
+        debug {
+            debuggable true
+            buildConfigField "boolean", "PRINT_LOG", "true"
+            buildConfigField "String", "URL_MAIN", "\"http://api.hhzdev.com/index.php/Home/\""
+            buildConfigField "String", "STATISTICAL_RES", "\"http://uni.gray1.hzstat.cn\""
+
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'com.yuyh.json:jsonviewer:1.0.6'
+    implementation "com.squareup.okhttp3:okhttp:3.14.9"
+}
