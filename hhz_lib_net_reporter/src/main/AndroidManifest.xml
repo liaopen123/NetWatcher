@@ -6,6 +6,7 @@
         android:allowBackup="true"
         android:supportsRtl="true">
         <activity
+            android:taskAffinity="com.hhz.lib.net_watcher"
             android:name=".ui.network_detail.NetworkDetailsActivity"
             android:theme="@style/Theme.Android2022.NoActionBar">
         </activity>
